@@ -1,10 +1,13 @@
 import torch
+
+
 try:
     import minimal_cuda_example
 except ImportError:
     print("Please build the CUDA extension first by running:")
     print("python setup.py install")
     exit(1)
+
 
 def test_cuda_add():
     print("Testing CUDA addition function...")
@@ -38,6 +41,7 @@ def test_cuda_add():
         c_torch = a + b
         max_diff = torch.max(torch.abs(c_cuda - c_torch)).item()
         print(f"Shape {shape}: max difference = {max_diff}")
+
 
 if __name__ == "__main__":
     test_cuda_add() 

@@ -7,8 +7,8 @@ setup(
         CUDAExtension(
             name='minimal_cuda_example',
             sources=[
-                'bindings.cpp',
-                'cuda_kernels.cu',
+                'torch_bindings/bindings.cpp',
+                'src/cuda_kernels.cu',
             ],
             extra_compile_args={
                 'cxx': ['-O2'],

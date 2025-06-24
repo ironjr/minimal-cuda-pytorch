@@ -1,11 +1,14 @@
 import torch
 import torch.nn as nn
+
+
 try:
     import minimal_cuda_example
 except ImportError:
     print("Please build the CUDA extension first by running:")
     print("python setup.py install")
     exit(1)
+
 
 class CudaAddFunction(torch.autograd.Function):
     @staticmethod
@@ -55,6 +58,7 @@ def test_model():
     print(f"Model output shape: {output.shape}")
     print(f"Loss: {loss.item()}")
     print("Custom CUDA function successfully integrated!")
+
 
 if __name__ == "__main__":
     test_model() 
